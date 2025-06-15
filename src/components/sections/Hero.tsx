@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
             <div className="relative">
               <img
-                src="/image copy.png"
+                src="/image copy copy.png"
                 alt="Developer working with modern tools and analytics"
                 className="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl"
               />
