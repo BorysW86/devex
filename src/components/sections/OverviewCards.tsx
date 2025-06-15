@@ -34,43 +34,34 @@ const OverviewCards: React.FC = () => {
                 {area.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm">
                 {area.summary}
               </p>
 
               {/* Metrics Preview */}
-              <div className="space-y-2 mb-4">
-                <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
-                  Key Metrics:
+              <div className="space-y-2">
+                <div className="text-xs font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                  Key Metrics
                 </div>
-                {area.keyMetrics.slice(0, 2).map((metric, metricIndex) => (
-                  <div key={metricIndex} className="flex items-center text-xs text-gray-600 dark:text-gray-300">
-                    <div className="w-1 h-1 bg-gray-400 rounded-full mr-2"></div>
-                    {metric}
+                {area.keyMetrics.slice(0, 3).map((metric, metricIndex) => (
+                  <div key={metricIndex} className="flex items-center text-xs">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 flex-shrink-0"></div>
+                    <span className="font-semibold text-gray-700 dark:text-gray-300">{metric}</span>
                   </div>
                 ))}
-                {area.keyMetrics.length > 2 && (
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    +{area.keyMetrics.length - 2} more
+                {area.keyMetrics.length > 3 && (
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    +{area.keyMetrics.length - 3} more metrics
                   </div>
                 )}
               </div>
-
-              {/* Learn More Link */}
-              <Link
-                to="/key-areas"
-                className="inline-flex items-center text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-gray-900 dark:hover:text-white transition-colors group/link"
-              >
-                Learn more
-                <ArrowRight className="ml-1 h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
             </div>
           ))}
         </div>
 
-        {/* Second Row - 3 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-5xl mx-auto">
-          {DEVEX_KEY_AREAS.slice(4, 7).map((area, index) => (
+        {/* Second Row - 4 cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {DEVEX_KEY_AREAS.slice(4, 8).map((area, index) => (
             <div key={index + 4} className="group relative bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105">
               {/* Number Badge */}
               <div className="inline-flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 group-hover:bg-gray-200 dark:group-hover:bg-gray-600 transition-colors">
@@ -84,48 +75,39 @@ const OverviewCards: React.FC = () => {
                 {area.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm">
                 {area.summary}
               </p>
 
               {/* Metrics Preview */}
-              <div className="space-y-2 mb-4">
-                <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
-                  Key Metrics:
+              <div className="space-y-2">
+                <div className="text-xs font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                  Key Metrics
                 </div>
-                {area.keyMetrics.slice(0, 2).map((metric, metricIndex) => (
-                  <div key={metricIndex} className="flex items-center text-xs text-gray-600 dark:text-gray-300">
-                    <div className="w-1 h-1 bg-gray-400 rounded-full mr-2"></div>
-                    {metric}
+                {area.keyMetrics.slice(0, 3).map((metric, metricIndex) => (
+                  <div key={metricIndex} className="flex items-center text-xs">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 flex-shrink-0"></div>
+                    <span className="font-semibold text-gray-700 dark:text-gray-300">{metric}</span>
                   </div>
                 ))}
-                {area.keyMetrics.length > 2 && (
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    +{area.keyMetrics.length - 2} more
+                {area.keyMetrics.length > 3 && (
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    +{area.keyMetrics.length - 3} more metrics
                   </div>
                 )}
               </div>
-
-              {/* Learn More Link */}
-              <Link
-                to="/key-areas"
-                className="inline-flex items-center text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-gray-900 dark:hover:text-white transition-colors group/link"
-              >
-                Learn more
-                <ArrowRight className="ml-1 h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
             </div>
           ))}
         </div>
 
-        {/* Third Row - 3 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {DEVEX_KEY_AREAS.slice(7, 10).map((area, index) => (
-            <div key={index + 7} className="group relative bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105">
+        {/* Third Row - 2 cards centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {DEVEX_KEY_AREAS.slice(8, 10).map((area, index) => (
+            <div key={index + 8} className="group relative bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105">
               {/* Number Badge */}
               <div className="inline-flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 group-hover:bg-gray-200 dark:group-hover:bg-gray-600 transition-colors">
                 <span className="text-sm font-bold text-gray-600 dark:text-gray-400">
-                  {index + 8}
+                  {index + 9}
                 </span>
               </div>
 
@@ -134,36 +116,27 @@ const OverviewCards: React.FC = () => {
                 {area.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm">
                 {area.summary}
               </p>
 
               {/* Metrics Preview */}
-              <div className="space-y-2 mb-4">
-                <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
-                  Key Metrics:
+              <div className="space-y-2">
+                <div className="text-xs font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                  Key Metrics
                 </div>
-                {area.keyMetrics.slice(0, 2).map((metric, metricIndex) => (
-                  <div key={metricIndex} className="flex items-center text-xs text-gray-600 dark:text-gray-300">
-                    <div className="w-1 h-1 bg-gray-400 rounded-full mr-2"></div>
-                    {metric}
+                {area.keyMetrics.slice(0, 3).map((metric, metricIndex) => (
+                  <div key={metricIndex} className="flex items-center text-xs">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 flex-shrink-0"></div>
+                    <span className="font-semibold text-gray-700 dark:text-gray-300">{metric}</span>
                   </div>
                 ))}
-                {area.keyMetrics.length > 2 && (
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    +{area.keyMetrics.length - 2} more
+                {area.keyMetrics.length > 3 && (
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    +{area.keyMetrics.length - 3} more metrics
                   </div>
                 )}
               </div>
-
-              {/* Learn More Link */}
-              <Link
-                to="/key-areas"
-                className="inline-flex items-center text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-gray-900 dark:hover:text-white transition-colors group/link"
-              >
-                Learn more
-                <ArrowRight className="ml-1 h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
             </div>
           ))}
         </div>
