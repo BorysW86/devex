@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from '../components/sections/Hero';
 import OverviewCards from '../components/sections/OverviewCards';
 import MetricChart from '../components/common/MetricChart';
@@ -20,6 +20,11 @@ import {
 } from 'lucide-react';
 
 const HomePage: React.FC = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const businessBenefits = [
     {
       icon: TrendingUp,
@@ -284,7 +289,7 @@ const HomePage: React.FC = () => {
           <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 mb-12 shadow-2xl shadow-blue-500/20">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {metricsStats.map((stat, index) => (
-                <div key={index} className="text-center group">
+                <div key={index} className="group text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-xl mb-4 group-hover:from-blue-500/40 group-hover:to-purple-500/40 transition-all duration-300 shadow-lg">
                     <stat.icon className="h-8 w-8 text-white" />
                   </div>

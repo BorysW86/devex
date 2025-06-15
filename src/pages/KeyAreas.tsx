@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, Settings, Cpu, GitBranch, Network, Zap, Shield, Target, Users, BookOpen, TrendingUp } from 'lucide-react';
 import { DEVEX_KEY_AREAS } from '../utils/constants';
 
 const KeyAreas: React.FC = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Map key areas to futuristic glowing icons
   const getAreaIcon = (index: number) => {
     const icons = [

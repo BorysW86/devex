@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, RefreshCw, Brain, Zap, TrendingUp, Users, Target, CheckCircle, ExternalLink, BookOpen, Github, FileText, Settings, Cpu, GitBranch, Network } from 'lucide-react';
 import Accordion from '../components/common/Accordion';
@@ -7,6 +7,11 @@ import { DEVEX_DIMENSIONS, DEVEX_RESOURCES } from '../utils/constants';
 import * as Icons from 'lucide-react';
 
 const WhatIsDevEx: React.FC = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const benefits = [
     {
       icon: TrendingUp,
