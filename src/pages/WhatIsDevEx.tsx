@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, RefreshCw, Brain, Zap, TrendingUp, Users, Target, CheckCircle, ExternalLink, BookOpen, Github, FileText, Settings, Cpu, GitBranch, Network } from 'lucide-react';
+import { ArrowRight, RefreshCw, Brain, Zap, TrendingUp, Users, Target, CheckCircle, ExternalLink, BookOpen, Github, FileText, Settings, Cpu, GitBranch, Network, Clock, Shield, Layers } from 'lucide-react';
 import Accordion from '../components/common/Accordion';
 import Quote from '../components/common/Quote';
 import { DEVEX_DIMENSIONS, DEVEX_RESOURCES } from '../utils/constants';
@@ -16,22 +16,26 @@ const WhatIsDevEx: React.FC = () => {
     {
       icon: TrendingUp,
       title: 'Increased Productivity',
-      description: 'Streamlined workflows and better tools lead to faster delivery and higher output.'
+      description: 'Streamlined workflows and better tools lead to faster delivery and higher output.',
+      metrics: ['40% faster delivery', '60% less context switching', '25% more deep work time']
     },
     {
       icon: CheckCircle,
       title: 'Higher Quality Code',
-      description: 'Better testing tools and review processes result in fewer bugs and more maintainable code.'
+      description: 'Better testing tools and review processes result in fewer bugs and more maintainable code.',
+      metrics: ['50% fewer production bugs', '30% faster code reviews', '20% better test coverage']
     },
     {
       icon: Target,
       title: 'Enhanced Innovation',
-      description: 'When developers spend less time on friction, they have more time for creative problem-solving.'
+      description: 'When developers spend less time on friction, they have more time for creative problem-solving.',
+      metrics: ['35% more time for innovation', '45% faster feature delivery', '28% better solution quality']
     },
     {
       icon: Users,
       title: 'Better Retention',
-      description: 'Satisfied developers are more likely to stay, reducing turnover and knowledge loss.'
+      description: 'Satisfied developers are more likely to stay, reducing turnover and knowledge loss.',
+      metrics: ['50% lower turnover', '70% higher satisfaction', '40% faster onboarding']
     }
   ];
 
@@ -64,6 +68,53 @@ const WhatIsDevEx: React.FC = () => {
       description: 'Cross-functional alignment and psychological safety',
       color: 'from-orange-500/20 to-amber-500/20',
       iconColor: 'text-orange-600 dark:text-orange-400'
+    }
+  ];
+
+  // Inner vs Outer Loop Activities
+  const innerLoopActivities = [
+    { name: 'Coding', description: 'Writing and editing source code', icon: FileText },
+    { name: 'Building', description: 'Compiling and packaging applications', icon: Settings },
+    { name: 'Testing', description: 'Running unit and integration tests', icon: CheckCircle },
+    { name: 'Debugging', description: 'Identifying and fixing issues', icon: Target }
+  ];
+
+  const outerLoopActivities = [
+    { name: 'Code Reviews', description: 'Peer review and collaboration', icon: Users },
+    { name: 'Deployment', description: 'Releasing to production environments', icon: Zap },
+    { name: 'Monitoring', description: 'Observing system performance', icon: TrendingUp },
+    { name: 'Planning', description: 'Sprint planning and requirements', icon: Brain }
+  ];
+
+  // DevEx Improvement Levels
+  const improvementLevels = [
+    {
+      level: 'Individual',
+      description: 'Personal productivity tools, IDE setup, and workflow optimization',
+      examples: ['Custom IDE configurations', 'Personal automation scripts', 'Keyboard shortcuts mastery'],
+      icon: Users,
+      color: 'from-blue-500/20 to-cyan-500/20'
+    },
+    {
+      level: 'Team',
+      description: 'Shared practices, code standards, and collaboration tools',
+      examples: ['Code review guidelines', 'Shared development environments', 'Team communication protocols'],
+      icon: Network,
+      color: 'from-green-500/20 to-emerald-500/20'
+    },
+    {
+      level: 'Department',
+      description: 'Cross-team standards, shared infrastructure, and knowledge sharing',
+      examples: ['Standardized CI/CD pipelines', 'Shared libraries and components', 'Cross-team documentation'],
+      icon: Layers,
+      color: 'from-purple-500/20 to-pink-500/20'
+    },
+    {
+      level: 'Company',
+      description: 'Organization-wide culture, policies, and strategic initiatives',
+      examples: ['Developer experience teams', 'Company-wide tooling standards', 'Learning and development programs'],
+      icon: Shield,
+      color: 'from-orange-500/20 to-amber-500/20'
     }
   ];
 
@@ -251,15 +302,235 @@ const WhatIsDevEx: React.FC = () => {
                   </svg>
                 </div>
                 <blockquote className="text-lg italic text-gray-700 dark:text-gray-300 leading-relaxed pl-12">
-                  "Developer experience (DevEx) is concerned with how software developers feel about, think about, and value their work."
+                  "Developer experience encompasses how developers feel about, think about, and value their work."
                 </blockquote>
                 <footer className="mt-4 pl-12">
                   <cite className="text-sm text-gray-600 dark:text-gray-400 not-italic font-medium">
-                    — LeadDev
+                    — Research-backed definition
                   </cite>
                 </footer>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comprehensive Definition Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg max-w-none dark:prose-invert">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+              What is Developer Experience Exactly?
+            </h2>
+            
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 mb-8">
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                <strong>Developer experience encompasses how developers feel about, think about, and value their work.</strong> For example, 
+                interruptions, unrealistic deadlines, and friction in development tools negatively affect DevEx, while having clear 
+                tasks, well-organized code, and pain-free releases improve it.
+              </p>
+              
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                A common misconception is that DevEx is primarily affected by tools. Research by DX company shows that human 
+                factors such as having clear goals for projects and feeling psychologically safe on a team have a substantial impact 
+                on developers' performance. Improving DevEx increases not only productivity, but also satisfaction, engagement, 
+                and employee retention.
+              </p>
+
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                DevEx is the overall focus on developer's work taking into account different aspects of development from hardware, 
+                software/tooling → to soft elements like: communication, cleanness about tasks and career opportunities.
+              </p>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              DevEx Can Be Improved on Different Levels/Layers:
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {improvementLevels.map((level, index) => (
+                <div key={index} className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${level.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <level.icon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                    </div>
+                    <div>
+                      <span className="inline-flex items-center justify-center w-6 h-6 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-sm font-bold mr-2">
+                        {index + 1}
+                      </span>
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                        {level.level}
+                      </h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    {level.description}
+                  </p>
+                  <div className="space-y-2">
+                    {level.examples.map((example, exampleIndex) => (
+                      <div key={exampleIndex} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                        {example}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 border border-blue-200 dark:border-blue-800">
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                Key Questions DevEx Addresses:
+              </h4>
+              <div className="space-y-4">
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white mb-2">
+                    How do low/medium performing teams make a high performing one?
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white mb-2">
+                    How to create an environment for developers to unleash their full potential and convert low/mid performing 
+                    individuals into high performing ones by shaping outside environment (outer loop) to impact inside productivity 
+                    (inner loop)?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inner vs Outer Loop Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Inner Loop vs Outer Loop Activities
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Software development can be broadly divided into two sets, or loops, of tasks; 
+              the less time spent on less fulfilling, outer-loop activities, the better.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            {/* Inner Loop */}
+            <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-green-200 dark:border-green-800 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl mb-4">
+                  <RefreshCw className="h-8 w-8 text-green-600 dark:text-green-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Inner Loop
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Core development activities that create direct value
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {innerLoopActivities.map((activity, index) => (
+                  <div key={index} className="flex items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                    <div className="p-2 bg-green-100 dark:bg-green-800 rounded-lg mr-4">
+                      <activity.icon className="h-5 w-5 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                        {activity.name}
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {activity.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
+                <p className="text-sm font-medium text-green-800 dark:text-green-300">
+                  <strong>Goal:</strong> Maximize time spent in the inner loop for higher productivity and satisfaction
+                </p>
+              </div>
+            </div>
+
+            {/* Outer Loop */}
+            <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-orange-200 dark:border-orange-800 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl mb-4">
+                  <Clock className="h-8 w-8 text-orange-600 dark:text-orange-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Outer Loop
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Supporting activities necessary but less fulfilling
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {outerLoopActivities.map((activity, index) => (
+                  <div key={index} className="flex items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
+                    <div className="p-2 bg-orange-100 dark:bg-orange-800 rounded-lg mr-4">
+                      <activity.icon className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                        {activity.name}
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {activity.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                <p className="text-sm font-medium text-orange-800 dark:text-orange-300">
+                  <strong>Goal:</strong> Minimize friction and time spent on outer loop activities
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Diagram */}
+          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+              Development Activity Flow
+            </h3>
+            <div className="flex items-center justify-center">
+              <div className="relative">
+                {/* Inner Loop Circle */}
+                <div className="w-48 h-48 border-4 border-green-500 rounded-full flex items-center justify-center bg-green-50 dark:bg-green-900/20">
+                  <div className="text-center">
+                    <RefreshCw className="h-8 w-8 text-green-600 dark:text-green-400 mx-auto mb-2" />
+                    <div className="text-sm font-bold text-green-800 dark:text-green-300">Inner Loop</div>
+                    <div className="text-xs text-green-600 dark:text-green-400">Build • Test • Debug</div>
+                  </div>
+                </div>
+                
+                {/* Outer Loop Elements */}
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-lg border border-orange-300 dark:border-orange-700">
+                  <div className="text-xs font-medium text-orange-800 dark:text-orange-300">Deploy at scale</div>
+                </div>
+                
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-lg border border-orange-300 dark:border-orange-700">
+                  <div className="text-xs font-medium text-orange-800 dark:text-orange-300">Meetings</div>
+                </div>
+                
+                <div className="absolute top-1/2 -left-16 transform -translate-y-1/2 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-lg border border-orange-300 dark:border-orange-700">
+                  <div className="text-xs font-medium text-orange-800 dark:text-orange-300">Integrate</div>
+                </div>
+                
+                <div className="absolute top-1/2 -right-20 transform -translate-y-1/2 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-lg border border-orange-300 dark:border-orange-700">
+                  <div className="text-xs font-medium text-orange-800 dark:text-orange-300">Security and compliance</div>
+                </div>
+              </div>
+            </div>
+            <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
+              Activities that are distractions
+            </p>
           </div>
         </div>
       </section>
@@ -305,31 +576,8 @@ const WhatIsDevEx: React.FC = () => {
         </div>
       </section>
 
-      {/* Definition and Why It Matters */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Definition and Why It Matters
-            </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              Developer Experience is a holistic concept that encompasses not just the tools and technologies 
-              developers use, but also the processes, environments, and human elements that shape their daily work. 
-              This includes psychological safety, clear goals, effective communication, and the overall culture 
-              that enables developers to do their best work.
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-              Research from McKinsey and DORA consistently shows that developer well-being and experience directly 
-              correlate with business outcomes. Organizations with superior developer experience see higher 
-              productivity, better retention rates, faster time-to-market, and improved software quality. 
-              Investing in DevEx isn't just about making developers happy—it's a strategic business imperative.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Three Core Dimensions */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -341,6 +589,51 @@ const WhatIsDevEx: React.FC = () => {
           </div>
 
           <Accordion items={accordionItems} allowMultiple={true} />
+        </div>
+      </section>
+
+      {/* Enhanced Why It Matters - Benefits */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Why Developer Experience Matters
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Investing in DevEx delivers measurable business value
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="group bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mr-4 shadow-sm group-hover:shadow-md transition-shadow group-hover:scale-110 duration-300">
+                    <benefit.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {benefit.title}
+                  </h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                  {benefit.description}
+                </p>
+                
+                {/* Metrics */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                    Key Improvements:
+                  </h4>
+                  {benefit.metrics.map((metric, metricIndex) => (
+                    <div key={metricIndex} className="flex items-center text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">{metric}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -402,40 +695,8 @@ const WhatIsDevEx: React.FC = () => {
         </div>
       </section>
 
-      {/* Enhanced Why It Matters - Benefits */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Developer Experience Matters
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Investing in DevEx delivers measurable business value
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="group bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1">
-                <div className="flex items-center mb-6">
-                  <div className="p-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mr-4 shadow-sm group-hover:shadow-md transition-shadow group-hover:scale-110 duration-300">
-                    <benefit.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {benefit.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Enhanced CTA Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to Improve Your Developer Experience?
