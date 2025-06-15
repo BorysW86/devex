@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, RefreshCw, Brain, Zap, TrendingUp, Users, Target, CheckCircle, ExternalLink, BookOpen, Github, FileText } from 'lucide-react';
+import { ArrowRight, RefreshCw, Brain, Zap, TrendingUp, Users, Target, CheckCircle, ExternalLink, BookOpen, Github, FileText, Settings, Cpu, GitBranch, Network } from 'lucide-react';
 import Accordion from '../components/common/Accordion';
 import Quote from '../components/common/Quote';
 import { DEVEX_DIMENSIONS, DEVEX_RESOURCES } from '../utils/constants';
@@ -27,6 +27,30 @@ const WhatIsDevEx: React.FC = () => {
       icon: Users,
       title: 'Better Retention',
       description: 'Satisfied developers are more likely to stay, reducing turnover and knowledge loss.'
+    }
+  ];
+
+  // Key DevEx components with glowing icons
+  const devexComponents = [
+    {
+      icon: Settings,
+      title: 'Tooling & Infrastructure',
+      description: 'Modern IDEs, CI/CD pipelines, and development environments'
+    },
+    {
+      icon: Cpu,
+      title: 'Automation & AI',
+      description: 'Intelligent testing, deployment, and code assistance'
+    },
+    {
+      icon: GitBranch,
+      title: 'Workflows & Processes',
+      description: 'Streamlined code review, incident management, and collaboration'
+    },
+    {
+      icon: Network,
+      title: 'Communication & Culture',
+      description: 'Cross-functional alignment and psychological safety'
     }
   ];
 
@@ -129,7 +153,7 @@ const WhatIsDevEx: React.FC = () => {
               </div>
             </div>
 
-            {/* Right side - Content */}
+            {/* Right side - Content with Key Components */}
             <div className="order-1 lg:order-2 text-center lg:text-left">
               {/* Badge */}
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium mb-8">
@@ -146,10 +170,29 @@ const WhatIsDevEx: React.FC = () => {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 More than tools — it's how developers feel, think, and deliver. 
                 Understanding the holistic concept that shapes daily development work.
               </p>
+
+              {/* Key DevEx Components with Glowing Icons */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {devexComponents.map((component, index) => (
+                  <div key={index} className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
+                    <div className="flex items-center mb-2">
+                      <div className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg mr-3 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                        <component.icon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
+                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                      {component.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {component.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
               {/* Pull Quote */}
               <Quote 
@@ -215,11 +258,11 @@ const WhatIsDevEx: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {DEVEX_RESOURCES.map((resource) => (
-              <div key={resource.id} className={`rounded-lg border-2 p-6 hover:shadow-lg transition-all duration-300 ${getCategoryColor(resource.category)}`}>
+              <div key={resource.id} className={`group rounded-lg border-2 p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] ${getCategoryColor(resource.category)}`}>
                 {/* Resource Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center">
-                    <div className="p-2 bg-white dark:bg-gray-800 rounded-lg mr-3 shadow-sm">
+                    <div className="p-2 bg-white dark:bg-gray-800 rounded-lg mr-3 shadow-sm group-hover:shadow-md transition-shadow">
                       {getResourceIcon(resource.type)}
                     </div>
                     <div>
@@ -231,7 +274,7 @@ const WhatIsDevEx: React.FC = () => {
                 </div>
 
                 {/* Resource Content */}
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {resource.title}
                 </h3>
                 {resource.subtitle && (
@@ -273,10 +316,10 @@ const WhatIsDevEx: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+              <div key={index} className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg mr-4">
-                    <benefit.icon className="h-6 w-6 text-gray-600 dark:text-gray-400" />
+                  <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg mr-4 shadow-sm">
+                    <benefit.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {benefit.title}
@@ -303,14 +346,14 @@ const WhatIsDevEx: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/key-areas"
-              className="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-lg transition-all duration-200"
+              className="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Explore Key Areas
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
               to="/metrics"
-              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               View Metrics
             </Link>

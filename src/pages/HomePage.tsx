@@ -109,6 +109,38 @@ const HomePage: React.FC = () => {
     }
   ];
 
+  // Animated stats for metrics section
+  const metricsStats = [
+    {
+      icon: TrendingUp,
+      value: '4.2',
+      label: 'Deployments/Week',
+      trend: 'up',
+      change: '+15%'
+    },
+    {
+      icon: Clock,
+      value: '2.5',
+      label: 'Days Lead Time',
+      trend: 'down',
+      change: '-20%'
+    },
+    {
+      icon: Award,
+      value: '8.1',
+      label: 'Developer Satisfaction',
+      trend: 'up',
+      change: '+8%'
+    },
+    {
+      icon: Shield,
+      value: '92%',
+      label: 'Code Quality Score',
+      trend: 'stable',
+      change: '+2%'
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <Hero />
@@ -128,10 +160,10 @@ const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {businessBenefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="group bg-gray-50 dark:bg-gray-800 rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex items-center mb-6">
-                  <div className="p-3 bg-white dark:bg-gray-700 rounded-lg mr-4 shadow-sm">
-                    <benefit.icon className="h-6 w-6 text-gray-600 dark:text-gray-400" />
+                  <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                    <benefit.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {benefit.title}
@@ -170,14 +202,14 @@ const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {impactAreas.map((area, index) => (
-              <div key={index} className={`rounded-xl border-2 p-8 ${area.color}`}>
+              <div key={index} className={`rounded-xl border-2 p-8 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] ${area.color}`}>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
                   {area.category}
                 </h3>
                 
                 <div className="space-y-4">
                   {area.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+                    <div key={itemIndex} className="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
                       <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                         {item.label}
                       </h4>
@@ -207,10 +239,10 @@ const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {keyOutcomes.map((outcome, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                 <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-gray-700 rounded-full shadow-lg mb-4">
-                    <outcome.icon className="h-8 w-8 text-gray-600 dark:text-gray-400" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full shadow-lg mb-4">
+                    <outcome.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                     {outcome.title}
@@ -223,7 +255,7 @@ const HomePage: React.FC = () => {
                 <div className="space-y-3">
                   {outcome.stats.map((stat, statIndex) => (
                     <div key={statIndex} className="flex items-center justify-center">
-                      <span className="inline-flex items-center px-3 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium border border-gray-200 dark:border-gray-600">
+                      <span className="inline-flex items-center px-3 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium border border-gray-200 dark:border-gray-600 shadow-sm">
                         <TrendingUp className="h-4 w-4 text-green-500 mr-2" />
                         {stat}
                       </span>
@@ -236,18 +268,44 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       
-      {/* Metrics Preview Section */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800">
+      {/* Enhanced Metrics Preview Section with Animated Stats */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Track What Matters
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Monitor key developer experience metrics to drive continuous improvement
             </p>
           </div>
           
+          {/* Animated Stats Strip */}
+          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 mb-12 shadow-2xl shadow-blue-500/20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {metricsStats.map((stat, index) => (
+                <div key={index} className="text-center group">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-xl mb-4 group-hover:from-blue-500/40 group-hover:to-purple-500/40 transition-all duration-300 shadow-lg">
+                    <stat.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-300 text-sm mb-2">
+                    {stat.label}
+                  </div>
+                  <div className={`text-xs font-medium ${
+                    stat.trend === 'up' ? 'text-green-400' : 
+                    stat.trend === 'down' ? 'text-red-400' : 
+                    'text-gray-400'
+                  }`}>
+                    {stat.change}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <MetricChart 
             data={SAMPLE_METRICS} 
             type="line" 
@@ -257,10 +315,11 @@ const HomePage: React.FC = () => {
           <div className="text-center mt-12">
             <Link
               to="/metrics"
-              className="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-lg transition-all duration-200"
+              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
             >
-              Explore All Metrics
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <span className="relative">Explore All Metrics</span>
+              <ArrowRight className="relative ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
@@ -278,14 +337,15 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/getting-started"
-              className="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-lg transition-all duration-200"
+              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
             >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <span className="relative">Get Started</span>
+              <ArrowRight className="relative ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/what-is-devex"
-              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+              className="group relative inline-flex items-center px-8 py-4 bg-white/10 dark:bg-gray-800 backdrop-blur-sm hover:bg-white/20 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Learn More
             </Link>
