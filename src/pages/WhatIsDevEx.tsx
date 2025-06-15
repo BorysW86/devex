@@ -315,65 +315,56 @@ const WhatIsDevEx: React.FC = () => {
         </div>
       </section>
 
-      {/* PROMINENT: What is Developer Experience Exactly? Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-20">
+      {/* NEUTRAL BUT PROMINENT: What is Developer Experience Exactly? Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <radialGradient id="spotlightGradient" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8"/>
-                <stop offset="100%" stopColor="#1e40af" stopOpacity="0.2"/>
-              </radialGradient>
+              <pattern id="definition-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1"/>
+              </pattern>
             </defs>
-            <circle cx="20%" cy="30%" r="200" fill="url(#spotlightGradient)">
-              <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="80%" cy="70%" r="150" fill="url(#spotlightGradient)">
-              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="6s" repeatCount="indefinite"/>
-            </circle>
+            <rect width="100%" height="100%" fill="url(#definition-grid)" />
           </svg>
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          {/* Attention-Grabbing Header */}
+          {/* Prominent but Neutral Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 text-yellow-300 text-sm font-bold mb-8 animate-pulse">
-              <AlertCircle className="w-5 h-5 mr-2" />
-              ESSENTIAL DEFINITION
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300 text-sm font-medium mb-8">
+              <Lightbulb className="w-4 h-4 mr-2" />
+              CORE DEFINITION
             </div>
             
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
               <span className="block">What is Developer Experience</span>
-              <span className="block bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent animate-glow">
+              <span className="block text-blue-600 dark:text-blue-400">
                 Exactly?
               </span>
             </h2>
           </div>
           
-          {/* Main Definition Card - Ultra Prominent */}
-          <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-12 mb-12 border border-white/20 shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-500 group">
-            {/* Glowing Border Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-blue-400/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
-            
+          {/* Main Definition Card - Prominent but Neutral */}
+          <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-10 mb-12 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 group">
             {/* Content */}
             <div className="relative z-10">
               {/* Key Icon */}
               <div className="flex justify-center mb-8">
-                <div className="p-6 bg-gradient-to-br from-yellow-400/30 to-orange-400/30 rounded-2xl shadow-lg">
-                  <Lightbulb className="h-12 w-12 text-yellow-300" />
+                <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+                  <Lightbulb className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
 
               {/* Core Definition */}
               <div className="text-center mb-12">
-                <p className="text-2xl sm:text-3xl font-bold text-white leading-relaxed mb-8">
-                  <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                    Developer experience encompasses how developers feel about, think about, and value their work.
-                  </span>
+                <p className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white leading-relaxed mb-6">
+                  Developer experience encompasses how developers <span className="text-blue-600 dark:text-blue-400">feel about</span>, 
+                  <span className="text-blue-600 dark:text-blue-400"> think about</span>, and 
+                  <span className="text-blue-600 dark:text-blue-400"> value</span> their work.
                 </p>
                 
-                <p className="text-xl text-gray-200 leading-relaxed mb-6">
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                   For example, interruptions, unrealistic deadlines, and friction in development tools negatively affect DevEx, 
                   while having clear tasks, well-organized code, and pain-free releases improve it.
                 </p>
@@ -381,27 +372,27 @@ const WhatIsDevEx: React.FC = () => {
 
               {/* Key Insights Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-6 border border-red-200 dark:border-red-800">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 bg-red-500/20 rounded-lg mr-4">
-                      <AlertCircle className="h-6 w-6 text-red-300" />
+                    <div className="p-2 bg-red-100 dark:bg-red-900/50 rounded-lg mr-3">
+                      <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Common Misconception</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Common Misconception</h3>
                   </div>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                     DevEx is <strong>NOT</strong> primarily affected by tools. Research shows that human factors such as 
                     having clear goals and feeling psychologically safe have substantial impact on performance.
                   </p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 bg-green-500/20 rounded-lg mr-4">
-                      <CheckCircle className="h-6 w-6 text-green-300" />
+                    <div className="p-2 bg-green-100 dark:bg-green-900/50 rounded-lg mr-3">
+                      <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Real Impact</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Real Impact</h3>
                   </div>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                     Improving DevEx increases not only <strong>productivity</strong>, but also <strong>satisfaction</strong>, 
                     <strong>engagement</strong>, and <strong>employee retention</strong>.
                   </p>
@@ -409,51 +400,52 @@ const WhatIsDevEx: React.FC = () => {
               </div>
 
               {/* Holistic Definition */}
-              <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-8 border border-blue-400/20">
-                <h3 className="text-2xl font-bold text-white mb-4 text-center">
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 border border-blue-200 dark:border-blue-800">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                   The Holistic View
                 </h3>
-                <p className="text-xl text-gray-200 leading-relaxed text-center">
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
                   DevEx is the <strong>overall focus</strong> on developer's work taking into account different aspects 
-                  of development from <span className="text-yellow-300">hardware</span>, <span className="text-blue-300">software/tooling</span> → 
-                  to <span className="text-green-300">soft elements</span> like: communication, cleanness about tasks and career opportunities.
+                  of development from <span className="text-blue-600 dark:text-blue-400 font-medium">hardware</span>, 
+                  <span className="text-blue-600 dark:text-blue-400 font-medium"> software/tooling</span> → 
+                  to <span className="text-blue-600 dark:text-blue-400 font-medium"> soft elements</span> like: communication, cleanness about tasks and career opportunities.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Critical Questions Section */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10 mb-12">
+          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700 mb-12">
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                 Critical Questions DevEx Addresses
               </h3>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 Understanding the transformation potential of developer experience
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-xl p-6 border border-orange-400/20">
+              <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-6 border border-orange-200 dark:border-orange-800">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 bg-orange-500/20 rounded-lg mr-4">
-                    <TrendingUp className="h-6 w-6 text-orange-300" />
+                  <div className="p-2 bg-orange-100 dark:bg-orange-900/50 rounded-lg mr-3">
+                    <TrendingUp className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                   </div>
-                  <h4 className="text-lg font-bold text-white">Team Transformation</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Team Transformation</h4>
                 </div>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   <strong>How do low/medium performing teams become high performing ones?</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-xl p-6 border border-green-400/20">
+              <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 bg-green-500/20 rounded-lg mr-4">
-                    <Target className="h-6 w-6 text-green-300" />
+                  <div className="p-2 bg-green-100 dark:bg-green-900/50 rounded-lg mr-3">
+                    <Target className="h-5 w-5 text-green-600 dark:text-green-400" />
                   </div>
-                  <h4 className="text-lg font-bold text-white">Environment Design</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Environment Design</h4>
                 </div>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   <strong>How to create an environment for developers to unleash their full potential</strong> by shaping 
                   outside environment (outer loop) to impact inside productivity (inner loop)?
                 </p>
@@ -463,21 +455,20 @@ const WhatIsDevEx: React.FC = () => {
 
           {/* Call to Action */}
           <div className="text-center">
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
               Ready to dive deeper into the components that make up exceptional developer experience?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/key-areas"
-                className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40"
+                className="group relative inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-lg blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                 <span className="relative">Explore Key Areas</span>
                 <ArrowRight className="relative ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="#inner-outer-loop"
-                className="group relative inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group relative inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Learn About Inner/Outer Loops
               </Link>

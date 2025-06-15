@@ -145,42 +145,77 @@ const MetricsPage: React.FC = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
-          <div className="text-center">
-            {/* Enhanced Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8">
-              <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-              Measurement & Analytics
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Enhanced Image with Glowing Frame */}
+            <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+              <div className="relative">
+                {/* Enhanced Image Container */}
+                <div className="relative p-2 bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm rounded-3xl border border-blue-500/30">
+                  <img
+                    src="/image copy copy copy copy copy.png"
+                    alt="Developer experience metrics and analytics dashboard with charts, graphs, and performance indicators"
+                    className="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl"
+                  />
+                  
+                  {/* Glowing Border Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-3xl blur-xl opacity-50"></div>
+                </div>
+
+                {/* Enhanced Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full animate-float opacity-80 shadow-lg shadow-blue-500/50">
+                  <div className="absolute inset-2 bg-white/20 rounded-full"></div>
+                </div>
+                <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full animate-float-delayed opacity-60 shadow-lg shadow-purple-500/50">
+                  <div className="absolute inset-1 bg-white/20 rounded-full"></div>
+                </div>
+                <div className="absolute top-1/2 -right-8 w-4 h-4 bg-gradient-to-br from-green-400 to-green-600 rounded-full animate-float-slow opacity-70 shadow-lg shadow-green-500/50">
+                  <div className="absolute inset-1 bg-white/20 rounded-full"></div>
+                </div>
+
+                {/* Additional Tech Elements */}
+                <div className="absolute top-8 -left-8 w-3 h-3 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                <div className="absolute bottom-12 -right-6 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-50" style={{animationDelay: '1s'}}></div>
+              </div>
             </div>
 
-            {/* Enhanced Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              <span className="block">Developer Experience</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">
-                Metrics & Frameworks
-              </span>
-            </h1>
+            {/* Right side - Enhanced Content */}
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              {/* Enhanced Badge */}
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8">
+                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                Measurement & Analytics
+              </div>
 
-            {/* Enhanced Subtitle */}
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
-              Comprehensive frameworks and research for measuring developer productivity, satisfaction, and experience.
-              Data-driven insights to transform your development organization.
-            </p>
-            
-            {/* Enhanced Overview Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {overviewStats.map((stat, index) => (
-                <div key={index} className="group text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <stat.icon className={`h-8 w-8 ${stat.iconColor}`} />
+              {/* Enhanced Main Heading */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                <span className="block">Developer Experience</span>
+                <span className="block bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">
+                  Metrics & Frameworks
+                </span>
+              </h1>
+
+              {/* Enhanced Subtitle */}
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12">
+                Comprehensive frameworks and research for measuring developer productivity, satisfaction, and experience.
+                Data-driven insights to transform your development organization.
+              </p>
+              
+              {/* Enhanced Overview Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {overviewStats.map((stat, index) => (
+                  <div key={index} className="group text-center">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <stat.icon className={`h-8 w-8 ${stat.iconColor}`} />
+                    </div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2 group-hover:scale-110 transition-transform duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {stat.description}
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {stat.description}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
