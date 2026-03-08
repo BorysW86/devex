@@ -2,7 +2,7 @@
 name: training-creator
 description: Creates and writes training workshop content. Specializes in IT outsourcing, logistics, and banking domains.
 tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch
-model: claude-sonnet-4-6
+model: claude-opus-4-6
 ---
 
 # Training Creator Agent

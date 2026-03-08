@@ -2,7 +2,7 @@
 name: training-reviewer
 description: Reviews and critiques training content for quality, accuracy, completeness, and market relevance. Opinionated and constructive.
 tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch
-model: claude-sonnet-4-6
+model: claude-opus-4-6
 ---
 
 # Training Reviewer Agent
